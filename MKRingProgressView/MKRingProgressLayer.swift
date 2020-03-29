@@ -260,7 +260,8 @@ open class RingProgressLayer: CALayer {
         }
         
         // Draw gradient arc
-        
+        let gradient: CGImage? = nil
+     /*
         let gradient: CGImage? = {
             guard useGradient else {
                 return nil
@@ -272,7 +273,7 @@ open class RingProgressLayer: CALayer {
             gradientGenerator.locations = [0.0, s, 1.0 - s, 1.0]
             gradientGenerator.endPoint = CGPoint(x: 0.5 - CGFloat(2 * s), y: 1.0)
             return gradientGenerator.image()
-        }()
+        }()*/
         
         if p > 0.0 {
             let arc1Path = UIBezierPath(arcCenter: c,
