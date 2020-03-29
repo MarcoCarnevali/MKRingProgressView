@@ -133,7 +133,7 @@ open class RingProgressLayer: CALayer {
         if #available(iOS 10.0, tvOS 10.0, *) {
             let format = UIGraphicsImageRendererFormat.default()
             let image = UIGraphicsImageRenderer(size: size, format: format).image { ctx in
-                drawContent(in: ctx.cgContext)
+               // drawContent(in: ctx.cgContext)
             }
             return image.cgImage
         } else {
@@ -141,7 +141,7 @@ open class RingProgressLayer: CALayer {
             guard let ctx = UIGraphicsGetCurrentContext() else {
                 return nil
             }
-            drawContent(in: ctx)
+           // drawContent(in: ctx)
             let image = UIGraphicsGetImageFromCurrentImageContext()?.cgImage
             UIGraphicsEndImageContext()
             return image
