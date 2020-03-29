@@ -80,7 +80,7 @@ internal final class GradientGenerator {
         generatedImage = nil
     }
 
-    func image() -> CGImage {
+    func image() -> CGImage? {
         if let image = generatedImage {
             return image
         }
