@@ -107,12 +107,16 @@ internal final class GradientGenerator {
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedFirst.rawValue)
 
-        let ctx = CGContext(data: &data, width: w, height: h, bitsPerComponent: bitsPerComponent, bytesPerRow: w * bytesPerPixel, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)!
-        ctx.interpolationQuality = .none
-        ctx.setShouldAntialias(false)
-        let img = ctx.makeImage()
-        generatedImage = img
-        return img
+        if let ctx = CGContext(data: &data, width: w, height: h, bitsPerComponent: bitsPerComponent, bytesPerRow: w * bytesPerPixel, space: colorSpace, bitmapInfo: bitmapInfo.rawValue){
+            ctx.interpolationQuality = .none
+            ctx.setShouldAntialias(false)
+            let img = ctx.makeImage()
+            
+            generatedImage = img
+            return img
+        }else {
+            return UIImage().cgImage
+        }
     }
 
     private func pixelDataForGradient(at point: CGPoint,
